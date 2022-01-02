@@ -6,3 +6,6 @@ Ceux qui utilise une base california devrait utiliser le script dans la branch c
 
 # Preview
 https://streamable.com/xqwmuc
+
+# Besoin d'aide 
+https://discord.gg/RMNdbb8cvx
