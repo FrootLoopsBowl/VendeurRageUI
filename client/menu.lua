@@ -23,9 +23,9 @@ local ItemsList = {
     {Label = 'Kit Neon', Name = 'kitneon', Price = 100}
 }
 
-local vendeurMain = RageUI.CreateMenu("Vendeur", "~b~Menu Vendeur")
-local weaponSubMenu = RageUI.CreateSubMenu(vendeurMain, "Vendeur", "~b~Menu Vendeur")
-local itemSubMenu = RageUI.CreateSubMenu(vendeurMain, "Vendeur", "~b~Menu Vendeur")
+local vendeurMain = RageUI.CreateMenu("Vendeur", "Menu Vendeur")
+local weaponSubMenu = RageUI.CreateSubMenu(vendeurMain, "Vendeur", "Menu Vendeur")
+local itemSubMenu = RageUI.CreateSubMenu(vendeurMain, "Vendeur", "Menu Vendeur")
 vendeurMain.Closed = function()
     isOpen = false
     RageUI.Visible(vendeurMain, false)
