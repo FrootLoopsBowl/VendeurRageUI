@@ -84,7 +84,7 @@ Citizen.CreateThread(function()
                 TocToc()
             end
         elseif #(pCoords - vCoords) < 7.0 then
-            DrawMarker(21, vCoords, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.3, 255, 155, 0, 220, 0, 1, 2, 0, nil, nil, 0)
+            DrawMarker(21, vCoords, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.3, 255, 20, 147, 220, 0, 1, 2, 0, nil, nil, 0)
         end
     end
 end)
