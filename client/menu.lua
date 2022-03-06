@@ -13,24 +13,7 @@ Citizen.CreateThread(function()
 end)
 
 local isOpen = false
-local vCoords = vector3(200.98, 2442.17, 60.44)
-local WeaponsList = {
-    {Label = 'Pistolet', Name = 'weapon_pistol', Price = 50000}, 
-    {Label = 'Pétoire', Name = 'weapon_snspistol', Price = 30000}    
-}
 
-local ItemsList = {
-    {Label = 'Kit Neon', Name = 'kitneon', Price = 100}
-}
-
-local vendeurMain = RageUI.CreateMenu("Vendeur", "Menu Vendeur")
-local weaponSubMenu = RageUI.CreateSubMenu(vendeurMain, "Vendeur", "Menu Vendeur")
-local itemSubMenu = RageUI.CreateSubMenu(vendeurMain, "Vendeur", "Menu Vendeur")
-vendeurMain.Closed = function()
-    isOpen = false
-    RageUI.Visible(vendeurMain, false)
-    FreezeEntityPosition(PlayerPedId(), false)
-end
 
 function OpenMenuVendeur()
     if isOpen then 
@@ -52,7 +35,7 @@ function OpenMenuVendeur()
 
                 end)
                 RageUI.IsVisible(weaponSubMenu, function()
-                    for k, v in pairs(WeaponsList) do
+                    for k, v in pairs(Config.WeaponsList) do
                         RageUI.Button(v.Label, v.Price, {}, true, {
                             onSelected = function()
                                 TriggerServerEvent('Froot:buyweapon', v.Name, v.Price)
@@ -61,7 +44,7 @@ function OpenMenuVendeur()
                     end
                 end)
                 RageUI.IsVisible(itemSubMenu, function()
-                    for k, v in pairs(ItemsList) do
+                    for k, v in pairs(Config.ItemsList) do
                         RageUI.Button(v.Label, v.Price, {}, true, {
                             onSelected = function()
                                 TriggerServerEvent('Froot:buyitem', v.Name, v.Price)
@@ -78,13 +61,13 @@ Citizen.CreateThread(function()
     while true do
         Wait(1)
         local pCoords = GetEntityCoords(PlayerPedId())
-        if #(pCoords - vCoords) < 1.5 then
+        if #(pCoords - Config.VendeurPos) < 1.5 then
             Help('~b~Appuyez sur E pour accéder au vendeur')
             if IsControlJustReleased(0, 38) then
                 TocToc()
             end
-        elseif #(pCoords - vCoords) < 7.0 then
-            DrawMarker(21, vCoords, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.3, 255, 20, 147, 220, 0, 1, 2, 0, nil, nil, 0)
+        elseif #(pCoords - Config.VendeurPos) < 7.0 then
+            DrawMarker(21, Config.VendeurPos, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.3, 255, 20, 147, 220, 0, 1, 2, 0, nil, nil, 0)
         end
     end
 end)
